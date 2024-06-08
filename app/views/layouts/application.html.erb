@@ -11,6 +11,14 @@
   </head>
 
   <body>
-    <%= yield %>
+	<div id="wrap">
+
+	<div id="fh5co-page">
+		<%= render 'shared/header' %>
+		<%= yield %>
+		<%= render 'shared/footer' %>
+
+	</div>
+	</div>
   </body>
 </html>
