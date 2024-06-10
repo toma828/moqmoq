@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    models:
+      user: 会員
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+        created_at: 登録日時
+        updated_at: 更新日時
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "名前を入力してください"
+            email:
+              blank: "メールアドレスを入力してください"
+            password:
+              blank: "パスワードを入力してください"
+              too_short: "パスワードは最低%{count}文字以上必要です"
+            password_confirmation:
+              blank: "パスワード（確認用）を入力してください"
+  errors:
+    messages:
+      blank: "入力してください"
+      too_short: "は%{count}文字以上で入力してください"

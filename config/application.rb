@@ -10,6 +10,18 @@ module Myapp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
+    config.i18n.default_locale = :ja
+
+    # 利用可能なロケールファイルのパスを追加
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+    # アプリケーションの利用可能なロケールを設定
+    config.i18n.available_locales = [:en, :ja]
+
+    config.time_zone = "Tokyo"
+
+    # ロケールファイルが存在しない場合にエラーを発生させる
+    config.i18n.raise_on_missing_translations = true
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
