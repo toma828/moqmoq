@@ -6,13 +6,19 @@
 	  <%= link_to root_path, class: 'navbar-brand pe-3' do %>
 		MoqMoq
 	  <% end %>
-	  <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	  </button>
-	  <div class='form-check form-switch mode-switch pe-lg-1 ms-auto me-4' data-bs-toggle="mode">
-	  	<%= link_to 'ログイン', new_user_session_path, class: 'btn btn-secondary btn-sm fs-sm rounded d-none d-lg-inline-flex' %>
+	  <div id ="navbarNav" class="offcanvas offcanvas-end">
+	    <div class="offcanvas-header border-top">
+		  <link_to '会員登録',new_user_path,class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex' %>
+		</div>
 	  </div>
-	  <%= link_to '会員登録', new_user_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex' %>
+	  <% if logged_in? %>
+		<%= link_to 'ログアウト', user_session_path, class: 'btn btn-secondary btn-sm fs-sm rounded d-none d-lg-inline-flex', data: {turbo_method: :delete} %>
+	  <% else %>
+		<div class='form-check form-switch mode-switch pe-lg-1 ms-auto me-4' data-bs-toggle="mode">
+			<%= link_to 'ログイン', new_user_session_path, class: 'btn btn-secondary btn-sm fs-sm rounded d-none d-lg-inline-flex' %>
+		</div>
+		<%= link_to '会員登録', new_user_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex' %>
+	  <% end %>
 	</div>
   </header>
   
